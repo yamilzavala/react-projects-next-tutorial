@@ -18,8 +18,7 @@ const DrinksPage = async () => {
     const data = await fetchData();    
     // console.log('data: ', data)
     return (
-        <div>
-            Drinks
+        <div>            
             <DrinksList drinks={data.drinks}/>
         </div>
     );
