@@ -9,7 +9,7 @@ import prisma from '@/utils/db';
 const prismaInserHandler = async () => {
     await prisma.task.create({
       data: {
-        content: `${Math.random()}`,
+        content: 'Wake up!'
       },
     });
 }
