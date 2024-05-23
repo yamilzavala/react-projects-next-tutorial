@@ -1,14 +1,17 @@
+import { EditForm } from "@/components";
 import { editTask, getTaskById } from "@/utils/actions";
+import Link from "next/link";
 
-const SingleTask = ({params}) => {
-    const {content} = getTaskById(params.id)
-    console.log('---CONTENT:', content)
+const SingleTask = async ({params}) => {
+    const task = await getTaskById(params.id)
+    
     return (
-        <form  className="join w-full" action={editTask}>
-            <input value={content} name='content' type="text" className='join-item w-full input input-bordered'/>
-            <input value={params.id} name='id' type="hidden"/>
-            <button className="btn btn-primary join-item uppercase">save</button>
-        </form>
+        <>
+            <div className="mb-16">
+                <Link href='/tasks' className="btn btn-accent">back to tasks</Link>
+            </div>
+            <EditForm task={task}/>
+        </>
     );
 };
 

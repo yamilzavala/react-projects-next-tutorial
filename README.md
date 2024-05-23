@@ -12,6 +12,12 @@ The minimum Node.js version has been bumped from 16.14 to 18.17, since 16.x has 
 npx create-next-app@latest appName
 ```
 
+## Commands to run project
+```sh
+npx prisma studio
+npm run dev
+```
+
 ## Folder Structure
 
 - app folder - where we will spend most of our time

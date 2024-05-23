@@ -1,10 +1,11 @@
-import { TaskForm, TaskList } from '@/components';
+import { TaskForm, TaskList, TaskFormCustom } from '@/components';
 import React from 'react';
 
 const TasksPage = () => {
     return (
         <div className='max-w-lg'>
-            <TaskForm/>
+            {/* <TaskForm/> */}
+            <TaskFormCustom/>
             <TaskList/>
         </div>
     );

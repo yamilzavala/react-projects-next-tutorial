@@ -13,6 +13,17 @@ export const createTask = async (formData) => {
     revalidatePath('/tasks')
 }
 
+export const createTaskCustom = async (formData) => {
+    await new Promise(resolve => setTimeout(resolve,2000));
+    const content = formData.get('content');
+    await prisma.task.create({
+        data: {
+            content
+        }
+    });
+    revalidatePath('/tasks')
+}
+
 export const getAllTasks = async () => {
     return await prisma.task.findMany({
         orderBy: {
@@ -41,13 +52,15 @@ export const deleteTask = async (formData) => {
 
 export const editTask = async (formData) => {
     const id = formData.get('id');
-    const newContent = formData.get('content');
+    const completed = formData.get('completed');
+    const content = formData.get('content');
     await prisma.task.update({
         where: {
             id
         },
         data: {
-            content: newContent
+            content,
+            completed: completed === 'on' ? true : false
         }
     })
     redirect('/tasks')
