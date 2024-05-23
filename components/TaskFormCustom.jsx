@@ -1,6 +1,8 @@
 'use client'
 import { createTaskCustom } from "@/utils/actions";
-import { useFormStatus } from 'react-dom';
+import { useFormStatus, useFormState } from 'react-dom';
+// The useFormStatus Hook provides status information of the last form submission.
+// useFormState is a Hook that allows you to update state based on the result of a form action.
 
 const SubmitBtn = () => {
     const {pending} = useFormStatus();
@@ -14,11 +16,19 @@ const SubmitBtn = () => {
     )
 }
 
+const initialState = {
+    message: null
+}
+
 const TaskFormCustom = () => {
+    const [formState, setFormState] = useFormState(createTaskCustom, initialState);
     return (        
-        <form action={createTaskCustom} className="join w-full">
-            <input type='text' placeholder='type here' name='content' required className='join-item w-full input input-bordered'/>
-            <SubmitBtn/>
+        <form action={setFormState}>
+            {formState.message ? <p className="mb-2">{formState.message}</p> : null}
+            <div className="join w-full">
+                <input type='text' placeholder='type here' name='content' required className='join-item w-full input input-bordered'/>
+                <SubmitBtn/>
+            </div>
         </form>
         
     );
