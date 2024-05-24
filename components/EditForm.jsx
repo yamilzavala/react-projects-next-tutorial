@@ -1,4 +1,6 @@
+'use client'
 import { editTask } from "@/utils/actions";
+import SubmitBtn from "./SubmitBtn";
 
 const EditForm = ({task}) => {
     const {completed, id, content} = task;
@@ -15,7 +17,7 @@ const EditForm = ({task}) => {
                 </label>
             </div>
 
-            <button type="submit" className="btn btn-primary btn-block btn-sm join-item uppercase">save</button>
+            <SubmitBtn text='edit'/>
         </form>
     );
 };

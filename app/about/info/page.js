@@ -7,12 +7,12 @@ const AboutInfoPage = () => {
       <h1 className="text-7xl">
         AboutInfoPage
       </h1>
-      <Link href='/about' className="text-2xl">
-        about page
+      <Link href='/about' className="text-2xl btn btn-accent">
+        back to about page
       </Link>
       <br/>
-      <Link href='/' className="text-2xl">
-        home page
+      <Link href='/' className="mt-5 text-2xl btn btn-primary">
+        back to home
       </Link>
     </div>
   )

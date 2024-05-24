@@ -34,7 +34,7 @@ export const createTaskCustom = async (prevState, formData) => {
         return {message: 'success'};
     } catch (error) {
         console.log('ERROR --: ', error)
-        return {message: 'error...'};
+        return {message: 'error'};
     }
 }
 
@@ -55,6 +55,7 @@ export const getTaskById = async (id) => {
 }
 
 export const deleteTask = async (formData) => {
+    await new Promise(resolve => setTimeout(resolve,2000)); //emulating delay from server
     const id = formData.get('id');
     await prisma.task.delete({
         where: {
@@ -65,6 +66,7 @@ export const deleteTask = async (formData) => {
 }
 
 export const editTask = async (formData) => {
+    await new Promise(resolve => setTimeout(resolve,2000)); //emulating delay from server
     const id = formData.get('id');
     const completed = formData.get('completed');
     const content = formData.get('content');
